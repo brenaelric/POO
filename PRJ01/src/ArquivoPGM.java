@@ -54,8 +54,9 @@ public class ArquivoPGM {
 			
 			//Lendo altura e largura
 			Scanner s = new Scanner(linhaDois);
-			this.largura = s.nextInt();
-			this.altura = s.nextInt();
+			String[] separada = linhaDois.split(" ");
+			this.largura = Integer.parseInt(separada[0]);
+			this.altura = Integer.parseInt(separada[1]);
 			s.close();
 			
 			//Lendo o valor máximo
