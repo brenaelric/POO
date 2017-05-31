@@ -9,8 +9,41 @@ public class ArquivoPGM {
   private int largura;
   private int max;
   private int[][] imagem;// = new int [altura][largura];
+  
 
-  public void carregaPGM(String caminho) throws Exception {
+  public int getAltura() {
+	return altura;
+}
+
+public void setAltura(int altura) {
+	this.altura = altura;
+}
+
+public int getLargura() {
+	return largura;
+}
+
+public void setLargura(int largura) {
+	this.largura = largura;
+}
+
+public int getMax() {
+	return max;
+}
+
+public void setMax(int max) {
+	this.max = max;
+}
+
+public int[][] getImagem() {
+	return imagem;
+}
+
+public void setImagem(int[][] imagem) {
+	this.imagem = imagem;
+}
+
+public void carregaPGM(String caminho) throws Exception {
     Scanner s = new Scanner(Paths.get(caminho));
     s.nextLine();// P2
     largura = s.nextInt();
