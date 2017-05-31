@@ -1,3 +1,5 @@
+import java.io.DataInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Paths;
@@ -45,14 +47,53 @@ public void setImagem(int[][] imagem) {
 
 public void carregaPGM(String caminho) throws Exception {
     Scanner s = new Scanner(Paths.get(caminho));
+    FileInputStream cArquivo = new FileInputStream(caminho);
+    DataInputStream arquivo = new DataInputStream(cArquivo);
+    
     s.nextLine();// P2
-    largura = s.nextInt();
-    altura = s.nextInt();
+    
+    int b = arquivo.read();
+    int count = 0;
+	while(count<altura*largura){
+    	if(b=='#'){
+    		arquivo.readLine();
+    		count++;
+    	}
+    	else{
+    		largura = s.nextInt();
+    		altura = s.nextInt(); 
+    		break;
+    	}    	
+    }
+	
     imagem = new int[this.largura][this.largura];
-    max = s.nextInt(); // 255
+    while(count<altura*largura){
+    	if(b=='#'){
+    		arquivo.readLine();
+    		count++;
+    	}
+    	else{
+    		max = s.nextInt(); // 255
+    		break;
+    	}    	
+    }
+    
     for (int i = 0; i < largura; i++) {
       for (int j = 0; j < altura; j++) {
-        imagem[i][j] = s.nextInt();
+    	  if(b<0)
+    		  break;
+    	  if(b== '\n'){
+    		  //Não faz nada
+    		  }
+    	  else if(b == '#'){
+    		  arquivo.readLine();
+    		  }
+    	  else if(Character.isWhitespace(b)){
+    		  //Não faz nada
+    		  }
+    	  else{
+    		  imagem[i][j] = s.nextInt();  
+    	  }
       }
     }
   }
