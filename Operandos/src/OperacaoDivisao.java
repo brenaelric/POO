@@ -17,10 +17,13 @@ public class OperacaoDivisao extends OperacaoBinaria{
 			System.out.println("Operandos: " + valor[0].Avaliar() + " e " + valor[1].Avaliar() +"\n"
 					+ "Simbolo: " + simboloOperador + "\n" + "Resultado: " + this.resultado);
 		}
-		else{
-			
-			throw new NumeroOperandosException("Numero de operandos não suportado");
-			throw new DivisaoPorZeroException("Impossível dividir por zero");			
+		else{			
+			if(valor.length == 2){
+				throw new NumeroOperandosException("Numero de operandos não suportado");
+			}
+			else{
+				throw new DivisaoPorZeroException("Impossível dividir por zero");
+			}
 		}
 		return resultado;
 	}
