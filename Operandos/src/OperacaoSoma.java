@@ -1,5 +1,5 @@
 
-public class OperacaoSoma extends OperacaoBinaria throws NumeroOperandosException{
+public class OperacaoSoma extends OperacaoBinaria{
 	
 	private float resultado;
 	
@@ -14,7 +14,7 @@ public class OperacaoSoma extends OperacaoBinaria throws NumeroOperandosExceptio
 		super(nome, simboloOperador);
 	}
 	
-	public float calculoResultado(Operando ... valor) {
+	public float calculoResultado(Operando ... valor) throws NumeroOperandosException{
 		if(valor.length == 2){
 			this.resultado = valor[0].Avaliar() + valor[1].Avaliar();
 			System.out.println("Operandos: " + valor[0].Avaliar() + " e " + valor[1].Avaliar() +"\n"
