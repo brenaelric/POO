@@ -1,5 +1,5 @@
 
-public class OperacaoSoma extends OperacaoBinaria{
+public class OperacaoSoma extends OperacaoBinaria throws NumeroOperandosException{
 	
 	private float resultado;
 	
@@ -21,12 +21,7 @@ public class OperacaoSoma extends OperacaoBinaria{
 					+ "Simbolo: " + simboloOperador + "\n" + "Resultado: " + this.resultado);
 		}
 		else{
-			try{
-				throw new NumeroOperandosException("Numero de operandos n„o suportado");
-			} catch(Exception e){
-				System.out.println("Capturada: " + e);
-				e.printStackTrace();
-			}
+			throw new NumeroOperandosException("Numero de operandos n√£o suportado");
 		}
 		return resultado;
 	}
