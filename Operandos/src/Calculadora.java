@@ -14,7 +14,8 @@ public class Calculadora {
 			x.calculoResultado(a, b);
 			y.calculoResultado(a, b);
 		} catch(Runtime Exception e){
-			
+			System.out.println("Capturada: " + e);
+			e.printStackTrace();
 		}
 	}
 
