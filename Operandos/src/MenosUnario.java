@@ -1,9 +1,15 @@
 
 public class MenosUnario extends OperacaoUnaria{
 
-	public MenosUnario(String nome, String simboloOperador) {
-		super(nome, simboloOperador);
-		// TODO Auto-generated constructor stub
+	public MenosUnario() {
+		super("Menos Unário", "-");		
 	}
-
+	public float calculoResultado(Operando ... valor){
+		if(valor.lenght != 1){
+			Syste,out.println("Erro");
+		}
+		else{
+			return -valor[o].avaliar;
+		}
+	}
 }
