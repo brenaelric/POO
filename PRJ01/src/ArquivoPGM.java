@@ -10,6 +10,7 @@ public class ArquivoPGM {
   private int max;
   private int[][] imagem;
   
+  
   //Getters and Setters
   
     public int getAltura() {
@@ -75,6 +76,36 @@ public class ArquivoPGM {
           }
         }
     }
+  
+  public void filtrar (int [][] mascara){
+    if(mascara.lenght == (k%2!=0) && mascara.lenght >0){
+      int t= imagem.lenght+mascara.lenght/2;
+      private int[][] imagemTemporaria = new imagemTemporaria[t][t];
+      
+      for(int p =0; p<mascara.lenght/2;p++){
+        for(j=0;j<t;j++){
+          imagemTemporaria[p][j]=0;
+          imagemTemporaria[t-p][j]=0;
+        }
+        for(i=1;i<t-1;i++){
+          imagemTemporaria[i][p]=0;
+          imagemTemporaria[j][t-p]=0;
+        }
+      }
+            
+      for(i=1;i<k-1;i++){
+        for(j=1;j<k-1;j++){
+          imagemTemporaria[i][j]=imagem[i][j];
+        }
+      }
+      
+      for(i=0;i<k;i++){
+        for(j=0;j<k;j++){
+          imagem = (imagemTemporaria[i][j] * mascara[i][j])/
+        }
+      }
+    }
+  }
     
     public void infoImagem (){
         System.out.println("Largura da Imagem = " + this.getLargura());
