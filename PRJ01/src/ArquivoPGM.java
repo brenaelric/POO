@@ -80,7 +80,7 @@ public class ArquivoPGM {
   public void filtrar (int [][] mascara){
 	  int k = mascara.length;
     
-	if(mascara.length == (k%2!=0) && mascara.length >0){
+	if(mascara.length%2 !=0 && mascara.length >0){
       int t= imagem.length+mascara.length/2;
       int[][] imagemTemporaria = new int[t][t];
       
