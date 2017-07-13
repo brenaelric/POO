@@ -78,11 +78,15 @@ public class ArquivoPGM {
     }
   
   public void filtrar (int [][] mascara){
-    if(mascara.lenght == (k%2!=0) && mascara.lenght >0){
-      int t= imagem.lenght+mascara.lenght/2;
-      private int[][] imagemTemporaria = new imagemTemporaria[t][t];
+	  int k = mascara.length;
+    
+	if(mascara.length == (k%2!=0) && mascara.length >0){
+      int t= imagem.length+mascara.length/2;
+      int[][] imagemTemporaria = new int[t][t];
       
-      for(int p =0; p<mascara.lenght/2;p++){
+      int j;
+	int i;
+	for(int p =0; p<mascara.length/2;p++){
         for(j=0;j<t;j++){
           imagemTemporaria[p][j]=0;
           imagemTemporaria[t-p][j]=0;
@@ -101,7 +105,7 @@ public class ArquivoPGM {
       
       for(i=0;i<k;i++){
         for(j=0;j<k;j++){
-          imagem = (imagemTemporaria[i][j] * mascara[i][j])/
+          imagem[i][j] = (imagemTemporaria[i][j] * mascara[i][j])/(1/(k*k));
         }
       }
     }
